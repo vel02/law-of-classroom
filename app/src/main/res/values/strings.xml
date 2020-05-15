@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">Law of Classroom</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="tag_fragment_home">tag_fragment_home</string>
+    <string name="tag_fragment_condition">tag_fragment_condition</string>
+    <string name="tag_fragment_pwede">tag_fragment_pwede</string>
+    <string name="tag_fragment_law">tag_fragment_law</string>
+</resources>
