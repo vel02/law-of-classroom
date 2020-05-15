@@ -23,20 +23,14 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
     @Override
     public void onClick(View v) {
         int id = v.getId();
-        switch (id) {
-            case R.id.btn_home_start:
-                mListener.inflate(LawKeys.KEY_INFLATER_FRAGMENT_CONDITION);
-                break;
+        if (id == R.id.btn_home_start) {
+            mListener.inflate(LawKeys.KEY_INFLATER_FRAGMENT_CONDITION);
         }
     }
 
 
     //references
     private Inflatable mListener;
-
-    //widgets
-    private ImageView imvKim;
-    private Button btnStart;
 
     @Override
     public void onAttach(@NonNull Context context) {
@@ -61,8 +55,9 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
                              Bundle savedInstanceState) {
 
         View view = inflater.inflate(R.layout.fragment_home, container, false);
-        imvKim = view.findViewById(R.id.imv_image_kim);
-        btnStart = view.findViewById(R.id.btn_home_start);
+        //widgets
+        ImageView imvKim = view.findViewById(R.id.imv_image_kim);
+        Button btnStart = view.findViewById(R.id.btn_home_start);
         btnStart.setOnClickListener(this);
         Glide.with(view).load(Resources.IMAGE_URL).into(imvKim);
         return view;
