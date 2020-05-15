@@ -1,15 +1,16 @@
 package kiz.learnwithvel.lawofclassroom;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
+import kiz.learnwithvel.lawofclassroom.services.LawService;
 import kiz.learnwithvel.lawofclassroom.util.LawKeys;
 
 public class HostActivity extends AppCompatActivity implements Inflatable {
-
 
     @Override
     public void inflate(String tag) {
@@ -106,7 +107,6 @@ public class HostActivity extends AppCompatActivity implements Inflatable {
                     break;
                 }
 
-
                 initPwedeFragment();
                 break;
         }
@@ -126,6 +126,18 @@ public class HostActivity extends AppCompatActivity implements Inflatable {
         }
     }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+        startService(new Intent(this, LawService.class));
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        stopService(new Intent(this, LawService.class));
+    }
+
     private void initHomeFragment() {
         //fragments
         HomeFragment fragmentHome = new HomeFragment();
@@ -142,5 +154,4 @@ public class HostActivity extends AppCompatActivity implements Inflatable {
         transaction.replace(R.id.fragment_container, fragmentPwede, getString(R.string.tag_fragment_pwede));
         transaction.commit();
     }
-
 }
